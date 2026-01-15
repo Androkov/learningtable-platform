@@ -5,24 +5,25 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 /* ================================
-   Configurações básicas
+   Configurações
 ================================ */
 const pdfUrl = './assets/sample.pdf';
 const container = document.getElementById('flipbook');
 const isMobile = window.innerWidth < 768;
 
 /* ================================
-   PageFlip (1 página por padrão)
+   PageFlip — SINGLE PAGE REAL
 ================================ */
 const pageFlip = new St.PageFlip(container, {
-  width: isMobile ? 360 : 520,
-  height: isMobile ? 560 : 740,
+  width: isMobile ? 380 : 600,
+  height: isMobile ? 620 : 820,
   size: 'stretch',
-  maxShadowOpacity: 0.2,
-  showCover: true,
+  usePortrait: true,        // 🔑 força uma página
+  showCover: false,
+  maxShadowOpacity: 0.15,
   mobileScrollSupport: false,
-  useMouseEvents: true,
-  swipeDistance: 30,
+  swipeDistance: 20,
+  disableFlipByClick: false
 });
 
 /* ================================
@@ -35,18 +36,18 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
     pages.push(
       pdf.getPage(i).then(page => {
         const viewport = page.getViewport({
-          scale: isMobile ? 2.6 : 2.3
+          scale: isMobile ? 3.0 : 2.6   // 🔥 texto GRANDE
         });
 
         const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
 
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
         return page.render({
-          canvasContext: context,
-          viewport: viewport
+          canvasContext: ctx,
+          viewport
         }).promise.then(() => canvas);
       })
     );
@@ -66,13 +67,11 @@ const backBtn = document.getElementById('backBtn');
 
 let controlsVisible = false;
 
-// Toggle controles ao tocar
 container.addEventListener('click', () => {
   controlsVisible = !controlsVisible;
   controls.classList.toggle('hidden', !controlsVisible);
 });
 
-// Fullscreen
 fullscreenBtn.addEventListener('click', () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
@@ -81,7 +80,6 @@ fullscreenBtn.addEventListener('click', () => {
   }
 });
 
-// Voltar para biblioteca
 backBtn.addEventListener('click', () => {
   window.location.href = '/learning-table/';
 });
