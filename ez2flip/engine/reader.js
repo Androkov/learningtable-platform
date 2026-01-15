@@ -24,10 +24,15 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   }
 });
 
+/* =========================
+   Navegação
+========================= */
+
 function goBack() {
   window.location.href = '/learning-table/';
 }
 
 function goFlip() {
+  // caminho RELATIVO (corrige o //)
   window.location.href = './flip.html';
 }
