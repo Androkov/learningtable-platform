@@ -9,19 +9,30 @@
 body {
   margin: 0;
   background: var(--bg);
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-/* Livro ocupa a viewport inteira */
-#flipbook {
+/* Container do leitor */
+#reader {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Controles SEMPRE no rodapé */
+/* Flipbook ocupa quase toda a tela */
+#flipbook {
+  width: 100%;
+  height: 100%;
+  max-width: 520px;      /* 🔥 controla largura real da leitura */
+  max-height: 92vh;
+}
+
+/* Controles SEMPRE embaixo */
 .controls {
   position: fixed;
   bottom: 16px;
