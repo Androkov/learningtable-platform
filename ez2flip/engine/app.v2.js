@@ -5,29 +5,29 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 /* ================================
-   Configurações
+   Configuração
 ================================ */
 const pdfUrl = './assets/sample.pdf';
 const container = document.getElementById('flipbook');
 const isMobile = window.innerWidth < 768;
 
 /* ================================
-   PageFlip — SINGLE PAGE REAL
+   PageFlip — LEITOR REAL (não livro)
 ================================ */
 const pageFlip = new St.PageFlip(container, {
-  width: isMobile ? 380 : 600,
-  height: isMobile ? 620 : 820,
+  width: container.clientWidth,
+  height: container.clientHeight,
   size: 'stretch',
-  usePortrait: true,        // 🔑 força uma página
+  usePortrait: true,
   showCover: false,
-  maxShadowOpacity: 0.15,
+  drawShadow: false,
+  maxShadowOpacity: 0,
   mobileScrollSupport: false,
   swipeDistance: 20,
-  disableFlipByClick: false
 });
 
 /* ================================
-   Renderização do PDF
+   Renderização do PDF (GRANDE)
 ================================ */
 pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   const pages = [];
@@ -36,7 +36,7 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
     pages.push(
       pdf.getPage(i).then(page => {
         const viewport = page.getViewport({
-          scale: isMobile ? 3.0 : 2.6   // 🔥 texto GRANDE
+          scale: isMobile ? 3.4 : 3.0   // 🔥 agora sim
         });
 
         const canvas = document.createElement('canvas');
@@ -65,11 +65,11 @@ const controls = document.getElementById('controls');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
 const backBtn = document.getElementById('backBtn');
 
-let controlsVisible = false;
+let visible = false;
 
 container.addEventListener('click', () => {
-  controlsVisible = !controlsVisible;
-  controls.classList.toggle('hidden', !controlsVisible);
+  visible = !visible;
+  controls.classList.toggle('hidden', !visible);
 });
 
 fullscreenBtn.addEventListener('click', () => {
