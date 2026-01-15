@@ -15,32 +15,32 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Área do flipbook */
+/* Livro ocupa tudo */
 #flipbook {
   width: 100vw;
   height: 100vh;
 }
 
-/* Desktop refinado */
+/* Desktop: centralizado */
 @media (min-width: 768px) {
   #flipbook {
     max-width: 900px;
-    max-height: 90vh;
+    max-height: 92vh;
     margin: auto;
   }
 }
 
-/* Controles imersivos */
+/* Controles inferiores */
 .controls {
   position: fixed;
-  top: 16px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
-  background: rgba(20, 20, 20, 0.85);
-  padding: 8px 14px;
-  border-radius: 22px;
+  gap: 14px;
+  background: rgba(20, 20, 20, 0.9);
+  padding: 10px 16px;
+  border-radius: 28px;
   z-index: 1000;
   transition: opacity 0.3s ease;
 }
