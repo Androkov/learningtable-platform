@@ -3,11 +3,15 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 
 const pdfUrl = './assets/sample.pdf';
 const viewer = document.getElementById('pdf-viewer');
+const isMobile = window.innerWidth < 768;
 
 pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   for (let i = 1; i <= pdf.numPages; i++) {
     pdf.getPage(i).then(page => {
-      const viewport = page.getViewport({ scale: 2.8 });
+      const viewport = page.getViewport({
+        scale: isMobile ? 2.4 : 2.2
+      });
+
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
 
@@ -33,6 +37,5 @@ function goBack() {
 }
 
 function goFlip() {
-  // caminho RELATIVO (corrige o //)
   window.location.href = './flip.html';
 }
