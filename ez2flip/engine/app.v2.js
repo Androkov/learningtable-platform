@@ -1,5 +1,5 @@
 /* ================================
-   PDF.js worker (obrigatório)
+   PDF.js worker
 ================================ */
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -26,7 +26,7 @@ const pageFlip = new St.PageFlip(container, {
 });
 
 /* ================================
-   Carrega PDF e renderiza páginas
+   Renderização do PDF
 ================================ */
 pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   const pagePromises = [];
@@ -57,4 +57,33 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   });
 }).catch(err => {
   console.error('Erro ao carregar PDF:', err);
+});
+
+/* ================================
+   Leitura imersiva
+================================ */
+const controls = document.getElementById('controls');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const backBtn = document.getElementById('backBtn');
+
+let controlsVisible = false;
+
+// Mostrar / esconder controles ao tocar
+container.addEventListener('click', () => {
+  controlsVisible = !controlsVisible;
+  controls.classList.toggle('hidden', !controlsVisible);
+});
+
+// Fullscreen
+fullscreenBtn.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+
+// Voltar para biblioteca
+backBtn.addEventListener('click', () => {
+  window.location.href = '/learning-table/';
 });
