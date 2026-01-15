@@ -35,6 +35,8 @@ body.reader {
 
 #pdf-viewer canvas {
   width: 95%;
-  max-width: 720px;
+  max-width: 680px; /* 🔥 controla o tamanho real */
+  height: auto;
   margin-bottom: 24px;
 }
+
