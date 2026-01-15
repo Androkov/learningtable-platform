@@ -1,7 +1,7 @@
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-const pdfUrl = '/ez2flip/engine/assets/sample.pdf';
+const pdfUrl = './assets/sample.pdf';
 
 const container = document.getElementById('flipbook');
 
