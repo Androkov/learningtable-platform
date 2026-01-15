@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <title>EZ2FLIP – Leitura</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="reader">
 
-  <div class="reader-header">
+  <header class="reader-header">
     <button onclick="goBack()">← Biblioteca</button>
     <button onclick="goFlip()">🔄 Flip</button>
-  </div>
+  </header>
 
-  <div id="pdf-viewer"></div>
+  <main class="reader-wrapper">
+    <div id="pdf-viewer"></div>
+  </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="reader.js"></script>
