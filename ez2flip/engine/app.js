@@ -1,4 +1,4 @@
-const pdfUrl = '/assets/sample.pdf';
+const pdfUrl = '/ez2flip/engine/assets/sample.pdf';
 
 const container = document.getElementById('flipbook');
 
