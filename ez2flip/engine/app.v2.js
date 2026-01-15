@@ -12,13 +12,13 @@ const container = document.getElementById('flipbook');
 const isMobile = window.innerWidth < 768;
 
 /* ================================
-   Inicializa PageFlip (mobile-first)
+   PageFlip (1 página por padrão)
 ================================ */
 const pageFlip = new St.PageFlip(container, {
-  width: isMobile ? 360 : 480,
-  height: isMobile ? 560 : 680,
+  width: isMobile ? 360 : 520,
+  height: isMobile ? 560 : 740,
   size: 'stretch',
-  maxShadowOpacity: 0.25,
+  maxShadowOpacity: 0.2,
   showCover: true,
   mobileScrollSupport: false,
   useMouseEvents: true,
@@ -29,13 +29,13 @@ const pageFlip = new St.PageFlip(container, {
    Renderização do PDF
 ================================ */
 pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
-  const pagePromises = [];
+  const pages = [];
 
   for (let i = 1; i <= pdf.numPages; i++) {
-    pagePromises.push(
+    pages.push(
       pdf.getPage(i).then(page => {
         const viewport = page.getViewport({
-          scale: isMobile ? 2.6 : 2.2
+          scale: isMobile ? 2.6 : 2.3
         });
 
         const canvas = document.createElement('canvas');
@@ -52,11 +52,9 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
     );
   }
 
-  Promise.all(pagePromises).then(canvases => {
+  Promise.all(pages).then(canvases => {
     pageFlip.loadFromHTML(canvases);
   });
-}).catch(err => {
-  console.error('Erro ao carregar PDF:', err);
 });
 
 /* ================================
@@ -68,7 +66,7 @@ const backBtn = document.getElementById('backBtn');
 
 let controlsVisible = false;
 
-// Mostrar / esconder controles ao tocar
+// Toggle controles ao tocar
 container.addEventListener('click', () => {
   controlsVisible = !controlsVisible;
   controls.classList.toggle('hidden', !controlsVisible);
