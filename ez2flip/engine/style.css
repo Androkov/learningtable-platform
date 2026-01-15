@@ -1,13 +1,20 @@
-/* =========================
-   Reader Mode
-========================= */
-
-body.reader {
-  background: #0f0f0f;
-  color: #fff;
-  overflow-y: auto;
+:root {
+  --bg: #0f0f0f;
+  --page-bg: #ffffff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body.reader {
+  margin: 0;
+  background: var(--bg);
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
 .reader-header {
   position: sticky;
   top: 0;
@@ -26,17 +33,24 @@ body.reader {
   cursor: pointer;
 }
 
-#pdf-viewer {
+/* Wrapper limita leitura */
+.reader-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 0 40px;
+  justify-content: center;
+  padding: 24px 12px 48px;
 }
 
+/* Área real de leitura */
+#pdf-viewer {
+  width: 100%;
+  max-width: 640px; /* 🔥 CHAVE */
+}
+
+/* Página */
 #pdf-viewer canvas {
-  width: 95%;
-  max-width: 680px; /* 🔥 controla o tamanho real */
+  width: 100%;
   height: auto;
-  margin-bottom: 24px;
+  background: var(--page-bg);
+  margin-bottom: 32px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
-
