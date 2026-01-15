@@ -1,14 +1,29 @@
+:root {
+  --bg: #0f0f0f;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  background: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: var(--bg);
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 #flipbook {
-  width: 90vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Desktop refinado */
+@media (min-width: 768px) {
+  #flipbook {
+    max-width: 900px;
+    max-height: 90vh;
+    margin: auto;
+  }
 }
