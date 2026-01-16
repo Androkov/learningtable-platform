@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Clock, Lock, BookOpen, Unlock } from 'lucide-react';
-import { getReadingProgress } from '@/utils/readingProgress';
+import { getReadingProgress } from './utils/readingProgress';
 
 const ContentCard = ({ content }) => {
   const navigate = useNavigate();
