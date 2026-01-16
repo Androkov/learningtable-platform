@@ -159,7 +159,7 @@ export const zIndex = {
 /**
  * Usage Examples:
  * 
- * import { colors, typography, spacing } from '@/styles/design-tokens';
+ * import { colors, typography, spacing } from './styles/design-tokens';
  * 
  * // In a component:
  * <div style={{ 
