@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import contentsData from '@/data/contents.json';
-import { saveReadingProgress, getReadingProgress } from '@/utils/readingProgress';
+import contentsData from './data/contents.json';
+import { saveReadingProgress, getReadingProgress } from './utils/readingProgress';
 
 const ContentContext = createContext();
 
