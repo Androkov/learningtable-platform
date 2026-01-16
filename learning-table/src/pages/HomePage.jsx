@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Search, Filter, BookOpen } from 'lucide-react';
-import { useContent } from '@/context/ContentContext';
-import ContentCard from '@/components/ContentCard';
-import Navigation from '@/components/Navigation';
+import { useContent } from './context/ContentContext';
+import ContentCard from './components/ContentCard';
+import Navigation from './components/Navigation';
 
 const HomePage = () => {
   const {
