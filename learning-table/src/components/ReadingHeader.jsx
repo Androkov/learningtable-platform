@@ -1,8 +1,8 @@
 import React from 'react';
 import { Moon, Sun, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTheme } from '@/context/ThemeContext';
-import Navigation from '@/components/Navigation';
+import { useTheme } from './context/ThemeContext';
+import Navigation from './components/Navigation';
 
 const ReadingHeader = ({ 
   content, 
