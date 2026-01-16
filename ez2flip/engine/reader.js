@@ -1,12 +1,21 @@
+/* =========================
+   PDF.js worker
+========================= */
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
+/* =========================
+   Configuração
+========================= */
 const pdfUrl = './assets/sample.pdf';
 const viewer = document.getElementById('pdf-viewer');
 
+/* =========================
+   Renderização contínua
+========================= */
 pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
-  for (let i = 1; i <= pdf.numPages; i++) {
-    pdf.getPage(i).then(page => {
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+    pdf.getPage(pageNum).then(page => {
       const viewport = page.getViewport({ scale: 1.4 });
 
       const canvas = document.createElement('canvas');
@@ -25,10 +34,9 @@ pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
   }
 });
 
+/* =========================
+   Navegação
+========================= */
 function goBack() {
   window.location.href = '/learning-table/';
-}
-
-function goFlip() {
-  window.location.href = './flip.html';
 }
