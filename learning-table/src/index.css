@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-600;
+  }
+}
+
+@layer utilities {
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-amber-500 ring-offset-2 ring-offset-white dark:ring-offset-slate-950;
+  }
+  
+  /* Reading content prose styles */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose p {
+    @apply mb-6;
+  }
+  
+  .prose h1 {
+    @apply text-3xl sm:text-4xl font-bold mb-6 text-slate-900 dark:text-white;
+  }
+  
+  .prose h2 {
+    @apply text-2xl sm:text-3xl font-bold mt-8 mb-4 text-slate-900 dark:text-white;
+  }
+  
+  .prose h3 {
+    @apply text-xl sm:text-2xl font-bold mt-6 mb-3 text-slate-900 dark:text-white;
+  }
+  
+  .prose strong {
+    @apply font-bold text-slate-900 dark:text-white;
+  }
+  
+  .prose ul, .prose ol {
+    @apply my-6 space-y-2;
+  }
+  
+  .prose li {
+    @apply ml-6;
+  }
+}
