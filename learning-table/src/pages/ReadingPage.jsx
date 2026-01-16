@@ -3,10 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useContent } from '@/context/ContentContext';
-import ReadingHeader from '@/components/ReadingHeader';
-import ReadingControls from '@/components/ReadingControls';
-import PDFRenderer from '@/components/PDFRenderer';
+import { useContent } from './context/ContentContext';
+import ReadingHeader from './components/ReadingHeader';
+import ReadingControls from './components/ReadingControls';
+import PDFRenderer from './components/PDFRenderer';
 
 const ReadingPage = () => {
   const { contentId } = useParams();
