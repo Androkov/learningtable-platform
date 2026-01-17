@@ -5,149 +5,153 @@
   box-sizing: border-box;
 }
 
-/* PALETA – Universidade anos 70/80 */
+/* PALETA GOLDEN AGE */
 :root {
-  --green-dark: #1f3d2b;
-  --green-soft: #e6efe9;
-  --brown-dark: #4b3621;
-  --brown-soft: #d6c7b2;
-  --paper: #fdfaf4;
-  --text-main: #2a1f14;
-  --text-muted: #5c4a3a;
-  --accent: #7a9b76;
+  --paper: #f4f1ea;
+  --paper-dark: #e8e1d4;
+  --ink: #2b1f15;
+  --ink-soft: #5c4a3a;
+  --green-academic: #1f3d2b;
+  --brown-wood: #4b3621;
+  --gold-accent: #b59b5b;
 }
 
 /* BASE */
 body {
   font-family: "Georgia", "Times New Roman", serif;
   background: var(--paper);
-  color: var(--text-main);
-  min-height: 100vh;
+  color: var(--ink);
+  line-height: 1.7;
 }
 
 /* LINKS */
 a {
+  color: var(--ink);
   text-decoration: none;
-  color: inherit;
+  border-bottom: 1px solid var(--gold-accent);
 }
 
-/* BOTÃO – clássico */
+a:hover {
+  color: var(--green-academic);
+}
+
+/* BOTÃO CLÁSSICO */
 .btn {
   display: inline-block;
-  padding: 14px 36px;
-  background: var(--green-dark);
+  padding: 14px 34px;
+  background: var(--green-academic);
   color: #fff;
-  border-radius: 6px;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  letter-spacing: 1px;
+  border: 2px solid var(--brown-wood);
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 var(--brown-wood);
 }
 
 .btn:hover {
   background: #163022;
-  transform: translateY(-1px);
 }
 
-/* HERO – cabeçalho universitário */
+/* HERO – CABEÇALHO UNIVERSITÁRIO */
 .hero {
   padding: 90px 20px 110px;
   text-align: center;
-  background: linear-gradient(
-    180deg,
-    var(--green-dark),
-    #16291f
-  );
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    var(--green-academic);
   color: #fdfaf4;
-  border-bottom: 8px solid var(--brown-dark);
+  border-bottom: 10px solid var(--brown-wood);
 }
 
 .hero h1 {
-  font-size: 56px;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  font-size: 58px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
 .hero p {
-  max-width: 760px;
-  margin: 0 auto 36px;
+  max-width: 780px;
+  margin: 0 auto 40px;
   font-size: 20px;
-  line-height: 1.8;
-  color: #f1ebe3;
+  color: #efe8dc;
 }
 
-/* FEATURES – mesa de leitura */
+/* FEATURES – SEÇÃO IMPRESSA */
 .features {
-  margin-top: -60px;
-  padding: 80px 20px 60px;
-  background: var(--green-soft);
+  padding: 80px 20px;
+  background: var(--paper-dark);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
+  gap: 40px;
+  border-top: 6px double var(--brown-wood);
+  border-bottom: 6px double var(--brown-wood);
 }
 
-/* CARD – folha / caderno */
+/* CARD – FOLHA / LIVRO */
 .feature {
   background: var(--paper);
-  padding: 36px;
-  border-radius: 12px;
-  border: 1px solid var(--brown-soft);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  padding: 40px;
+  border: 2px solid var(--brown-wood);
+  box-shadow: 6px 6px 0 var(--paper-dark);
 }
 
 .feature h3 {
   font-size: 22px;
   margin-bottom: 14px;
-  color: var(--green-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--green-academic);
 }
 
 .feature p {
-  color: var(--text-muted);
-  line-height: 1.7;
+  color: var(--ink-soft);
 }
 
 /* TOPO */
 .topbar {
   padding: 20px;
   background: var(--paper);
-  border-bottom: 2px solid var(--brown-soft);
+  border-bottom: 4px solid var(--brown-wood);
 }
 
-/* CATÁLOGO */
+/* CATÁLOGO – ESTANTE */
 .catalogo {
-  padding: 60px 20px;
+  padding: 80px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 36px;
+  gap: 48px;
 }
 
-/* CARD DE CURSO – livro */
+/* CARD DE CURSO – LIVRO ANTIGO */
 .card {
   background: var(--paper);
-  border-radius: 10px;
-  border: 1px solid var(--brown-soft);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
+  border: 2px solid var(--brown-wood);
+  box-shadow: 8px 8px 0 var(--paper-dark);
 }
 
 .card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-bottom: 1px solid var(--brown-soft);
+  border-bottom: 2px solid var(--brown-wood);
 }
 
 .card h3 {
   padding: 20px;
   font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .card .btn {
-  margin: 0 20px 20px;
+  margin: 0 20px 24px;
   width: calc(100% - 40px);
   text-align: center;
 }
@@ -160,20 +164,19 @@ a {
 .conteudo iframe {
   width: 100%;
   height: 80vh;
-  border-radius: 8px;
   background: #fff;
-  border: 1px solid var(--brown-soft);
+  border: 3px solid var(--brown-wood);
 }
 
 /* FOOTER */
 footer {
-  margin-top: 60px;
-  padding: 24px;
+  padding: 30px;
   text-align: center;
-  background: var(--green-dark);
+  background: var(--green-academic);
   color: #fdfaf4;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-top: 6px solid var(--brown-wood);
 }
 
 /* MOBILE */
@@ -184,9 +187,5 @@ footer {
 
   .hero p {
     font-size: 17px;
-  }
-
-  .features {
-    margin-top: -40px;
   }
 }
